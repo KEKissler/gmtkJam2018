@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4878627258680102}
   - component: {fileID: 212245567979645138}
   - component: {fileID: 82871030993703734}
+  - component: {fileID: 114841426829113772}
   m_Layer: 0
   m_Name: Distraction
   m_TagString: Untagged
@@ -136,6 +137,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114841426829113772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339189396716648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1a9260014c0964c8bfd63f1809dec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212245567979645138
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -11,6 +11,9 @@ public class GuardBehaviorController : MonoBehaviour {
     private GameObject aggroTarget = null;
     private GuardVisionController vc;
     private NavMeshAgent nma;
+
+    public GameObject objToFollow;  // test var
+
 	// Use this for initialization
 	void Start () {
         vc = GetComponent<GuardVisionController>();
@@ -29,15 +32,17 @@ public class GuardBehaviorController : MonoBehaviour {
 
     public void deaggro(GameObject source)
     {
+        Debug.Log(source==null);
         if (source && source == aggroTarget)
         {
+            Debug.Log("Back to normal");
             aggroTarget = null;
             state = State.normal;
             continuePatrol();
         }
     }
 
-    //calculates the next patrolpoint to target based on what is closest when this fxn is called
+    // calculates the next patrolpoint to target based on what is closest when this fxn is called
     private void continuePatrol()
     {
 
@@ -47,8 +52,8 @@ public class GuardBehaviorController : MonoBehaviour {
 	void Update () {
 		if(state == State.normal)
         {
-            
-            //patrol things
+            nma.destination = objToFollow.transform.position;   // TEST behavior: follow the player
+            // actually patrol things
         }
 	}
 }

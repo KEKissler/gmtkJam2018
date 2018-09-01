@@ -21,9 +21,17 @@ public class SoundCreationController : MonoBehaviour {
 		if(ableToSpawn && Input.GetAxisRaw("Fire1") >= 0.5) {
 			ableToSpawn = false;
 			timeSinceLastSpawn = 0.0f;
+			
 			// Instantiate a Distraction under DistractionContainer
 			justInstantiated = Instantiate(distraction, transform.position, distraction.transform.rotation, distraction_c.transform);
-			Invoke("deaggro", distractionDeathTime);	// after a bit, the distraction should tell the guards to de-aggro and then delete itself
+			justInstantiated.GetComponent<DistractionDecay>().killPrep(distractionDeathTime, guard_c.transform);	// set up the distraction to die
+
+			// aggro all the guards (for now!!!!!)
+			foreach (Transform child in guard_c.transform)
+			{
+				// TODO: add radius check to JUST aggro guards within a distance from that distraction
+				child.GetComponent<GuardBehaviorController>().aggro(justInstantiated, true);
+			}
 		}
 		else {
 			// handle the cooldown
@@ -32,15 +40,8 @@ public class SoundCreationController : MonoBehaviour {
 				ableToSpawn = true;
 			}
 		}
+
 	}
 
-	public void deaggro() {
-		// tell a guard to stop being so mad
-		foreach (Transform child in guard_c.transform)
-		{
-			// call *the guard's* deaggro function
-			child.GetComponent<GuardBehaviorController>().deaggro(justInstantiated);
-		}
-		Destroy(justInstantiated);
-	}
+
 }
