@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 291307141}
   - component: {fileID: 291307140}
   - component: {fileID: 291307144}
+  - component: {fileID: 291307145}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -296,6 +297,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!65 &291307145
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 291307139}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.0000002, z: 0.20000005}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &397543471 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1093761033314050, guid: d26b31a9bcbfb1345b810c2d0e5be17c,
@@ -9629,6 +9642,11 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 65356798884059030, guid: d26b31a9bcbfb1345b810c2d0e5be17c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d26b31a9bcbfb1345b810c2d0e5be17c, type: 2}
   m_IsPrefabAsset: 0
@@ -9642,7 +9660,6 @@ GameObject:
   - component: {fileID: 973951095}
   - component: {fileID: 973951094}
   - component: {fileID: 973951093}
-  - component: {fileID: 973951092}
   m_Layer: 0
   m_Name: WalkableTerrain
   m_TagString: Untagged
@@ -9650,27 +9667,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
   m_IsActive: 1
---- !u!64 &973951092
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 973951091}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &973951093
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 973951091}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -9763,6 +9766,27 @@ Prefab:
       propertyPath: objToFollow
       value: 
       objectReference: {fileID: 291307139}
+    - target: {fileID: 195010177836763638, guid: a7c4303d563246d4ebaa09f4f6c284bf,
+        type: 2}
+      propertyPath: m_AngularSpeed
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 195010177836763638, guid: a7c4303d563246d4ebaa09f4f6c284bf,
+        type: 2}
+      propertyPath: m_Speed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 23463840893795152, guid: a7c4303d563246d4ebaa09f4f6c284bf,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212082408202560546, guid: a7c4303d563246d4ebaa09f4f6c284bf,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ce65b32e6bba80c449e7619107e99764,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7c4303d563246d4ebaa09f4f6c284bf, type: 2}
   m_IsPrefabAsset: 0
