@@ -10,7 +10,7 @@ public class GuardVisionController : MonoBehaviour
     public LayerMask mask;// make sure all things with colliders in the active list are on a layer specified in the LayerMask
     public GameObject activeListParent;// a parent of gameobjects to keep track of vision on
     private GuardBehaviorController gb;
-    private List<Transform> activeList;
+    private List<Transform> activeList = new List<Transform>();
 
     // Use this for initialization
     void Start()
