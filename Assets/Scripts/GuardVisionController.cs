@@ -24,13 +24,15 @@ public class GuardVisionController : MonoBehaviour
 
     public bool CheckLOS(Transform other)
     {
-        Vector3 hereToOther = other.position - transform.position;
+        Vector3 coneOrigin = new Vector3(transform.position.x, 0, transform.position.z);
+        Vector3 hereToOther = other.position - coneOrigin;
         //within vision cone
+        //Debug.DrawRay(coneOrigin, transform.forward, Color.magenta);
         if(hereToOther.magnitude <= maxVisionDistance && Vector3.Angle(hereToOther, transform.forward) <= visionConeAngle)
         {
             //do a raycast to see if the vision towards target is unobstructed
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, hereToOther, out hit, maxVisionDistance, mask, QueryTriggerInteraction.UseGlobal))
+            RaycastHit hit; 
+            if (Physics.Raycast(coneOrigin, hereToOther, out hit, maxVisionDistance, mask, QueryTriggerInteraction.UseGlobal))
             {
                 Debug.Log("Raycast hit: " + (hit.collider.name));
                 return (hit.collider.name == "Buddy");
