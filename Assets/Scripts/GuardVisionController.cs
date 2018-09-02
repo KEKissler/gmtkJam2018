@@ -55,11 +55,11 @@ public class GuardVisionController : MonoBehaviour
         }
         //update vision cone
         lr.SetPositions(new Vector3[]{
-        transform.position + new Vector3(0,0.5f,0) + (transform.forward * maxVisionDistance * Mathf.Sin(Mathf.Deg2Rad * visionConeAngle)) + Vector3.Cross(transform.forward, Vector3.up) * Mathf.Cos(Mathf.Deg2Rad * visionConeAngle),
-        (transform.position + new Vector3(0,0.5f,0)),
-        //(transform.position + new Vector3(0,0.5f,0)) + transform.forward * maxVisionDistance,
+        transform.position + new Vector3(0, 0.0f, 0) + (transform.forward * maxVisionDistance * Mathf.Sin(Mathf.Deg2Rad * visionConeAngle)) + Vector3.Cross(transform.forward, Vector3.up) * Mathf.Cos(Mathf.Deg2Rad * visionConeAngle),
+        (transform.position + new Vector3(0, 0.0f, 0)),
+        //(transform.position + new Vector3(0, 0.5f, 0)) + transform.forward * maxVisionDistance,
         //transform.position + new Vector3(0, 0.5f, 0),
-        transform.position + new Vector3(0,0.5f,0) + (transform.forward * maxVisionDistance * Mathf.Sin(Mathf.Deg2Rad * visionConeAngle)) - Vector3.Cross(transform.forward, Vector3.up) * Mathf.Cos(Mathf.Deg2Rad * visionConeAngle)
+        transform.position + new Vector3(0, 0.0f, 0) + (transform.forward * maxVisionDistance * Mathf.Sin(Mathf.Deg2Rad * visionConeAngle)) - Vector3.Cross(transform.forward, Vector3.up) * Mathf.Cos(Mathf.Deg2Rad * visionConeAngle)
         });
     }
 }
