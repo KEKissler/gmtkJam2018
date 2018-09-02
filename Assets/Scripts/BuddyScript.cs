@@ -37,6 +37,11 @@ public class BuddyScript : MonoBehaviour {
 		}
 	}
 
+    void OnTriggerEnter()
+    {
+        Debug.Log("Buddy made it !!!");
+    }
+
     private void setNextPatrolTarget()
     {
         previousPatrolTargetIndex = currentPatrolTargetIndex;
