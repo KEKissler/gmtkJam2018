@@ -34,7 +34,6 @@ public class GuardVisionController : MonoBehaviour
             RaycastHit hit; 
             if (Physics.Raycast(coneOrigin, hereToOther, out hit, maxVisionDistance, mask, QueryTriggerInteraction.UseGlobal))
             {
-                Debug.Log("Raycast hit: " + (hit.collider.name));
                 return (hit.collider.name == "Buddy");
             }
         }

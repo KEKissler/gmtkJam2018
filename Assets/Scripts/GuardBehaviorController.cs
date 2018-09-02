@@ -42,7 +42,6 @@ public class GuardBehaviorController : MonoBehaviour {
 
     public void deaggro(GameObject source)
     {
-        Debug.Log(source==null);
         if (source && source == aggroTarget)
         {
             aggroTarget = null;
@@ -92,6 +91,9 @@ public class GuardBehaviorController : MonoBehaviour {
             {
                 setNextPatrolTarget();
             }
+        }else if(state == State.alerted)
+        {
+            nma.destination = aggroTarget.transform.position;
         }
 	}
 }
