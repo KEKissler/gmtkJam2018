@@ -23,7 +23,7 @@ public class GuardBehaviorController : MonoBehaviour {
         patrolLegPercentage = Mathf.Clamp(patrolLegPercentage, 0.5f, 0.9f);
         foreach(Transform p in patrolListParent)
         {
-            patrolPoints.Add(p.position);
+            patrolPoints.Add(new Vector3(p.position.x, 0, p.position.z));
         }
         //keep following two lines together
         currentPatrolTargetIndex = patrolPoints.Count - 1;
