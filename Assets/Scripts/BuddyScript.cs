@@ -18,7 +18,6 @@ public class BuddyScript : MonoBehaviour {
 
     public GameObject EndGameCanvas;
     public GameObject WinGameCanvas;
-    public PlayerMovementController pmc;
 
 	void Start () {
         nma = GetComponent<NavMeshAgent>();
@@ -45,7 +44,7 @@ public class BuddyScript : MonoBehaviour {
     private void ShowEndGameMenu()
     {
         EndGameCanvas.SetActive(true);
-        Destroy(pmc);
+        Destroy(this.gameObject);
     }
 
     void OnTriggerEnter()
