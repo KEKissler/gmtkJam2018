@@ -16,6 +16,10 @@ public class BuddyScript : MonoBehaviour {
     public Transform patrolListParent;
     public Transform guard_c;
 
+    public GameObject EndGameCanvas;
+    public GameObject WinGameCanvas;
+    public PlayerMovementController pmc;
+
 	void Start () {
         nma = GetComponent<NavMeshAgent>();
         foreach (Transform guard in guard_c) {
@@ -34,12 +38,22 @@ public class BuddyScript : MonoBehaviour {
 	void OnCollisionEnter(Collision other) {
 		if(guards.Contains(other.gameObject)) {
 			Debug.Log("Buddy got found :c");
+            ShowEndGameMenu();
 		}
 	}
+
+    private void ShowEndGameMenu()
+    {
+        EndGameCanvas.SetActive(true);
+        Destroy(pmc);
+    }
 
     void OnTriggerEnter()
     {
         Debug.Log("Buddy made it !!!");
+        WinGameCanvas.SetActive(true);
+        Destroy(this.gameObject);
+
     }
 
     private void setNextPatrolTarget()
