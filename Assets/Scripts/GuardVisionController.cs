@@ -10,12 +10,14 @@ public class GuardVisionController : MonoBehaviour
     public LayerMask mask;// make sure all things with colliders in the active list are on a layer specified in the LayerMask
     public GameObject activeListParent;// a parent of gameobjects to keep track of vision on
     private GuardBehaviorController gb;
+    private LineRenderer lr;
     private List<Transform> activeList = new List<Transform>();
 
     // Use this for initialization
     void Start()
     {
-        gb = transform.GetComponent<GuardBehaviorController>();
+        gb = GetComponent<GuardBehaviorController>();
+        lr = GetComponent<LineRenderer>();
         foreach(Transform t in activeListParent.transform)
         {
             activeList.Add(t);
@@ -51,5 +53,13 @@ public class GuardVisionController : MonoBehaviour
                 gb.aggro(t.gameObject, false);
             }
         }
+        //update vision cone
+        lr.SetPositions(new Vector3[]{
+        transform.position + new Vector3(0,0.5f,0) + (transform.forward * maxVisionDistance * Mathf.Sin(Mathf.Deg2Rad * visionConeAngle)) + Vector3.Cross(transform.forward, Vector3.up) * Mathf.Cos(Mathf.Deg2Rad * visionConeAngle),
+        (transform.position + new Vector3(0,0.5f,0)),
+        //(transform.position + new Vector3(0,0.5f,0)) + transform.forward * maxVisionDistance,
+        //transform.position + new Vector3(0, 0.5f, 0),
+        transform.position + new Vector3(0,0.5f,0) + (transform.forward * maxVisionDistance * Mathf.Sin(Mathf.Deg2Rad * visionConeAngle)) - Vector3.Cross(transform.forward, Vector3.up) * Mathf.Cos(Mathf.Deg2Rad * visionConeAngle)
+        });
     }
 }
